@@ -1,7 +1,15 @@
 #!/bin/bash
 #
-# 控制手机的 log
+# 控制手机的起点
 set -euo pipefail
+
+
+
+
+
+
+
+
 
 readonly ROOTDIR='/yzaj'
 readonly bindir="${ROOTDIR}/phone/bin"
