@@ -3,6 +3,9 @@
 # 控制手机的参数
 set -euo pipefail
 
+phonenum=''
+phonecmd=''
+
 if (($# < 2)); then
   err "Missing operand"
   exit "${E_MISSING_OPERAND}"
@@ -21,18 +24,4 @@ for phonearg in "$@"; do
     exit "${E_UNRECOGNIZED_OPTION}"
   fi
   
-  echo "${phonearg}"
-  
 done
-
-
-
-
-
-
-
-
-
-
-
-
