@@ -22,6 +22,8 @@ for phonearg in "$@"; do
   
   if [[ "${phonearg}" == "all" ]]; then
   :
+  elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]-[1-2][0-9][0-9]$ ]]; then
+  :
   else
     err "Unrecognized option '${phonearg}'"
     exit "${E_UNRECOGNIZED_OPTION}"
