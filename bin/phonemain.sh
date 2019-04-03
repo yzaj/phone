@@ -4,6 +4,7 @@
 set -euo pipefail
 
 #### 常量 ####
+readonly E_MISSING_OPERAND=1
 
 #### 包含 ####
 . "${confdir}"/phone.conf
