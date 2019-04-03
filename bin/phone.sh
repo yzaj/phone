@@ -3,15 +3,30 @@
 # 控制手机的起点
 set -euo pipefail
 
-
-
-
-
-
-
-
-
+#### 常量 ####
 readonly ROOTDIR='/yzaj'
+
+#### 函数 ####
+err() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 readonly bindir="${ROOTDIR}/phone/bin"
 readonly confdir="${ROOTDIR}/phone/conf"
 readonly tempdir="${ROOTDIR}/temp/phone"
