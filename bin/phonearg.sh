@@ -10,15 +10,12 @@ fi
 
 for phonearg in "$@"; do
   
-  case "${phonearg}" in
-    all)
-      :
-      ;;
-    *)
-      err "Unrecognized option '${phonearg}'"
-      exit "${E_UNRECOGNIZED_OPTION}"
-      ;;
-  esac
+  if [[ "${phonearg}" == "all" ]]; then
+    :
+  else
+    err "Unrecognized option '${phonearg}'"
+    exit "${E_UNRECOGNIZED_OPTION}"
+  fi
   
 done
 
