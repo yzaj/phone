@@ -8,9 +8,18 @@ if (($# < 2)); then
   exit "${E_MISSING_OPERAND}"
 fi
 
-
-
-
+for phonearg in "$@"; do
+  
+  case "${phonearg}" in
+    all)
+      :
+      ;;
+    *)
+      :
+      ;;
+  esac
+  
+done
 
 
 
