@@ -15,7 +15,8 @@ for phonearg in "$@"; do
       :
       ;;
     *)
-      :
+      err "Unrecognized option '${phonearg}'"
+      exit "${E_UNRECOGNIZED_OPTION}"
       ;;
   esac
   
