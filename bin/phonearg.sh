@@ -14,9 +14,17 @@ fi
 for phonearg in "$@"; do
   
   if [[ "${phonearg}" == "all" ]]; then
-    :
+    phonenum="$(seq 101 "${ENDNUM}" | xargs)"
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9,-]*[0-9]$ ]]; then
-    :
+    
+    phone_args="${phonearg//,/ }"
+    
+    for phone_arg in ${phone_args}; do
+      
+      echo $phone_arg
+      
+    done
+    
   elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9]$ ]]; then
     :
   else
@@ -25,3 +33,17 @@ for phonearg in "$@"; do
   fi
   
 done
+
+
+
+
+
+
+
+
+echo "${phonenum}"
+
+
+
+
+
