@@ -12,3 +12,13 @@ readonly E_UNRECOGNIZED_OPTION=2
 #### 变量 ####
 
 #### 主体 ####
+# USAGE: phone.sh all 101-118 121-124 128 130 reboot,sleep:30,home-game
+
+
+
+
+
+
+
+
+
