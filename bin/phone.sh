@@ -11,22 +11,7 @@ err() {
   echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### 变量 ####
 readonly bindir="${ROOTDIR}/phone/bin"
 readonly confdir="${ROOTDIR}/phone/conf"
 readonly tempdir="${ROOTDIR}/temp/phone"
@@ -37,6 +22,7 @@ readonly beforedir
 phonelog="${todaydir}/$(date +'%H-%M-%S').log"
 readonly phonelog
 
+#### 主体 ####
 if [[ -d "${beforedir}" ]]; then
   rm -r "${beforedir}"
 fi
