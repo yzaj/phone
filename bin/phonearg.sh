@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 控制手机的起点
+# 控制手机的参数
 set -euo pipefail
 
 
