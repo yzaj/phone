@@ -9,6 +9,12 @@ readonly E_UNRECOGNIZED_OPTION=2
 
 #### 函数 ####
 # 该函数的使用范围受限
+err_mo() {
+  err "Missing operand"
+  exit "${E_MISSING_OPERAND}"
+}
+
+# 该函数的使用范围受限
 err_uo() {
   err "Unrecognized option '${phonearg}'"
   exit "${E_UNRECOGNIZED_OPTION}"
@@ -26,8 +32,7 @@ phonecmds=''
 #### 主体 ####
 # USAGE: phone.sh all 101-118 121-124 128 130 reboot,sleep:30,home-game
 if (($# < 2)); then
-  err "Missing operand"
-  exit "${E_MISSING_OPERAND}"
+  err_mo
 fi
 
 for phonearg in "$@"; do
@@ -65,4 +70,23 @@ done
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 echo -e "${phonenums}"
+echo "${phonecmds}"
