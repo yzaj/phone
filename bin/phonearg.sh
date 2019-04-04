@@ -15,7 +15,6 @@ err_uo() {
 }
 
 #### 变量 ####
-phonenum=''
 phonenums=''
 
 #### 主体 ####
@@ -28,21 +27,28 @@ fi
 for phonearg in "$@"; do
   
   if [[ "${phonearg}" == "all" ]]; then
+    
     phonenum="$(seq 101 "${ENDNUM}")"
+    phonenums="${phonenums}\n${phonenum}"
+    
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]-[1-2][0-9][0-9]$ ]]; then
-  :
+    
+    :
+    
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]]; then
-  :
+    
+    :
+    
   elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9]$ ]]; then
-  :
+    
+    :
+    
   else
     err_uo
   fi
-  
-  phonenums="${phonenums} ${phonenum}"
   
 done
 
 
 
-echo "${phonenums}"
+echo -e "${phonenums}"
