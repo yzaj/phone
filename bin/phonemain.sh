@@ -10,6 +10,7 @@ set -euo pipefail
 . "${bindir}"/phonelist.sh
 . "${bindir}"/phonecmd.sh
 . "${bindir}"/phonearg.sh
+. "${bindir}"/phoneinit.sh
 
 #### 函数 ####
 
