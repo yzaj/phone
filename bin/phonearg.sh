@@ -36,7 +36,7 @@ if (($# < 2)); then
 fi
 
 for phonearg in "$@"; do
-  # 获取所有 all 参数
+  # 获取所有的 all 参数
   if [[ "${phonearg}" == "all" ]]; then
     phonenum="$(seq 101 "${ENDNUM}")"
     get_nums
