@@ -8,6 +8,7 @@ readonly E_MISSING_OPERAND=1
 readonly E_UNRECOGNIZED_OPTION=2
 
 #### 函数 ####
+# 该函数的使用范围受限
 err_uo() {
   err "Unrecognized option '${phonearg}'"
   exit "${E_UNRECOGNIZED_OPTION}"
