@@ -77,7 +77,9 @@ for phonearg in "$@"; do
   fi
 done
 
-
+if [[ -z "${phonenums}" || -z "${phonecmds}" ]]; then
+  err_mo
+fi
 
 
 
