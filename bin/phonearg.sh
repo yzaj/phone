@@ -8,6 +8,10 @@ readonly E_MISSING_OPERAND=1
 readonly E_UNRECOGNIZED_OPTION=2
 
 #### 函数 ####
+err_uo() {
+  err "Unrecognized option '${phonearg}'"
+  exit "${E_UNRECOGNIZED_OPTION}"
+}
 
 #### 变量 ####
 
@@ -29,8 +33,7 @@ for phonearg in "$@"; do
   elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9]$ ]]; then
   :
   else
-    err "Unrecognized option '${phonearg}'"
-    exit "${E_UNRECOGNIZED_OPTION}"
+    err_uo
   fi
   
 done
