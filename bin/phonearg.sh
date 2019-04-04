@@ -36,12 +36,12 @@ if (($# < 2)); then
 fi
 
 for phonearg in "$@"; do
-  # 提取所有 all 参数
+  # 获取所有 all 参数
   if [[ "${phonearg}" == "all" ]]; then
     phonenum="$(seq 101 "${ENDNUM}")"
     get_nums
   
-  # 提取所有形如 101-118 的参数
+  # 获取所有形如 101-118 的参数
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]-[1-2][0-9][0-9]$ ]]; then
     phonearg_head="${phonearg%-*}"
     phonearg_tail="${phonearg#*-}"
@@ -53,12 +53,12 @@ for phonearg in "$@"; do
       err_uo
     fi
   
-  
+  # 获取所有形如 101 的参数
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]] && ((101 <= phonearg)) && ((phonearg <= ENDNUM)); then
     phonenum="${phonearg}"
     get_nums
   
-  
+  # 获取最后一次输入的命令组
   elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9,]$ ]]; then
     phonecmds="${phonearg//,/ }"
     phonecmds="${phonecmds//-/_}"
@@ -71,7 +71,7 @@ for phonearg in "$@"; do
       fi
     done
   
-  
+  # 否则
   else
     err_uo
   fi
