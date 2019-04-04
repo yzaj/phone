@@ -4,7 +4,7 @@
 set -euo pipefail
 
 #### 常量 ####
-# 间隔时间: 分钟
+# 重启 adb 服务端的间隔时间: 分钟
 readonly INTERVAL_TIME=180
 readonly E_NOT_FOUND=3
 
