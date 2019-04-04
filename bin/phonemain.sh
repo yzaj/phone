@@ -8,7 +8,7 @@ set -euo pipefail
 #### 包含 ####
 . "${confdir}"/phone.conf
 . "${bindir}"/phonelist.sh
-
+. "${bindir}"/phonecmd.sh
 . "${bindir}"/phonearg.sh
 
 #### 函数 ####
