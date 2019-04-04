@@ -48,9 +48,16 @@ for phonearg in "$@"; do
     phonenum="${phonearg}"
     get_nums
   elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9]$ ]]; then
+    phonecmds="${phonearg//,/ }"
+    phonecmds="${phonecmds//-/_}"
     
-    :
-    
+    for phonecmd in ${phonecmds}; do
+      if [[ "${phonecmd}" =~ ^sleep:[0-9]*$ || "$(type -t "${phonecmd}")" == "function" ]]; then
+        :
+      else
+        err_uo
+      fi
+    done
   else
     err_uo
   fi
