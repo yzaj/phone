@@ -36,9 +36,13 @@ if (($# < 2)); then
 fi
 
 for phonearg in "$@"; do
+  
+  
   if [[ "${phonearg}" == "all" ]]; then
     phonenum="$(seq 101 "${ENDNUM}")"
     get_nums
+  
+  
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]-[1-2][0-9][0-9]$ ]]; then
     phonearg_head="${phonearg%-*}"
     phonearg_tail="${phonearg#*-}"
@@ -49,9 +53,13 @@ for phonearg in "$@"; do
     else
       err_uo
     fi
+  
+  
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]] && ((101 <= phonearg)) && ((phonearg <= ENDNUM)); then
     phonenum="${phonearg}"
     get_nums
+  
+  
   elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9,]$ ]]; then
     phonecmds="${phonearg//,/ }"
     phonecmds="${phonecmds//-/_}"
@@ -63,6 +71,8 @@ for phonearg in "$@"; do
         err_uo
       fi
     done
+  
+  
   else
     err_uo
   fi
