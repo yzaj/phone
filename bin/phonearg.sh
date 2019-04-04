@@ -30,9 +30,15 @@ for phonearg in "$@"; do
     phonenum="$(seq 101 "${ENDNUM}")"
     phonenums="${phonenums}\n${phonenum}"
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]-[1-2][0-9][0-9]$ ]]; then
+    phonearg_head="${phonearg%-*}"
+    phonearg_tail="${phonearg#*-}"
     
-    :
-    
+    if ((101 <= phonearg_head)) && ((phonearg_head < phonearg_tail)) && ((phonearg_tail <= ENDNUM)); then
+      phonenum="$(seq "${phonearg_head}" "${phonearg_tail}")"
+      phonenums="${phonenums}\n${phonenum}"
+    else
+      err_uo
+    fi
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]]; then
     
     :
