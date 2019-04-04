@@ -52,7 +52,7 @@ for phonearg in "$@"; do
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]] && ((101 <= phonearg)) && ((phonearg <= ENDNUM)); then
     phonenum="${phonearg}"
     get_nums
-  elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9]$ ]]; then
+  elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9,]$ ]]; then
     phonecmds="${phonearg//,/ }"
     phonecmds="${phonecmds//-/_}"
     
