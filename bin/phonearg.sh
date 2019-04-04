@@ -81,23 +81,6 @@ if [[ -z "${phonenums}" || -z "${phonecmds}" ]]; then
   err_mo
 fi
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-echo -e "${phonenums}"
-echo "${phonecmds}"
+phonenums="$(echo -e "${phonenums}" | sort -nu | xargs)"
+readonly phonenums
+readonly phonecmds
