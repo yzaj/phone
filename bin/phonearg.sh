@@ -36,12 +36,12 @@ if (($# < 2)); then
 fi
 
 for phonearg in "$@"; do
-  # 提取所有的 all 参数
+  # 提取所有 all 参数
   if [[ "${phonearg}" == "all" ]]; then
     phonenum="$(seq 101 "${ENDNUM}")"
     get_nums
   
-  
+  # 提取所有形如 101-118 的参数
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]-[1-2][0-9][0-9]$ ]]; then
     phonearg_head="${phonearg%-*}"
     phonearg_tail="${phonearg#*-}"
