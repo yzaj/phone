@@ -14,6 +14,8 @@ err_uo() {
 }
 
 #### 变量 ####
+phonenum=''
+phonenums=''
 
 #### 主体 ####
 # USAGE: phone.sh all 101-118 121-124 128 130 reboot,sleep:30,home-game
@@ -35,6 +37,8 @@ for phonearg in "$@"; do
   else
     err_uo
   fi
+  
+  phonenums="${phonenums} ${phonenum}"
   
 done
 
