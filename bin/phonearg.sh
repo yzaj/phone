@@ -16,6 +16,7 @@ err_uo() {
 
 #### 变量 ####
 phonenums=''
+phonecmds=''
 
 #### 主体 ####
 # USAGE: phone.sh all 101-118 121-124 128 130 reboot,sleep:30,home-game
