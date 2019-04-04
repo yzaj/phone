@@ -28,7 +28,7 @@ fi
 for phonearg in "$@"; do
   
   if [[ "${phonearg}" == "all" ]]; then
-  :
+    phonenum="$(seq 101 "${ENDNUM}")"
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]-[1-2][0-9][0-9]$ ]]; then
   :
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]]; then
@@ -45,3 +45,4 @@ done
 
 
 
+echo "${phonenums}"
