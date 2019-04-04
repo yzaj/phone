@@ -26,7 +26,6 @@ if (($# < 2)); then
 fi
 
 for phonearg in "$@"; do
-  
   if [[ "${phonearg}" == "all" ]]; then
     
     phonenum="$(seq 101 "${ENDNUM}")"
@@ -47,7 +46,6 @@ for phonearg in "$@"; do
   else
     err_uo
   fi
-  
 done
 
 
