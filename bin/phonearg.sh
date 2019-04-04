@@ -14,6 +14,11 @@ err_uo() {
   exit "${E_UNRECOGNIZED_OPTION}"
 }
 
+# 该函数的使用范围受限
+get_nums() {
+  phonenums="${phonenums}\n${phonenum}"
+}
+
 #### 变量 ####
 phonenums=''
 phonecmds=''
@@ -28,21 +33,20 @@ fi
 for phonearg in "$@"; do
   if [[ "${phonearg}" == "all" ]]; then
     phonenum="$(seq 101 "${ENDNUM}")"
-    phonenums="${phonenums}\n${phonenum}"
+    get_nums
   elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]-[1-2][0-9][0-9]$ ]]; then
     phonearg_head="${phonearg%-*}"
     phonearg_tail="${phonearg#*-}"
     
     if ((101 <= phonearg_head)) && ((phonearg_head < phonearg_tail)) && ((phonearg_tail <= ENDNUM)); then
       phonenum="$(seq "${phonearg_head}" "${phonearg_tail}")"
-      phonenums="${phonenums}\n${phonenum}"
+      get_nums
     else
       err_uo
     fi
-  elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]]; then
-    
-    :
-    
+  elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]] && ((101 <= phonearg)) && ((phonearg <= ENDNUM)); then
+    phonenum="${phonearg}"
+    get_nums
   elif [[ "${phonearg}" =~ ^[A-Za-z][A-Za-z0-9,:-]*[A-Za-z0-9]$ ]]; then
     
     :
