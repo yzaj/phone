@@ -11,9 +11,11 @@ readonly bindir="${ROOTDIR}/phone/bin"
 readonly confdir="${ROOTDIR}/phone/conf"
 readonly tempdir="${ROOTDIR}/temp/phone"
 readonly shelllib="${ROOTDIR}/shell/lib"
+
 todaydir="${tempdir}/log/$(date +'%Y-%m-%d')"
 beforedir="${tempdir}/log/$(date +'%Y-%m-%d' -d '-7day')"
+phonelog="${todaydir}/$(date +'%H-%M-%S').log"
+
 readonly todaydir
 readonly beforedir
-phonelog="${todaydir}/$(date +'%H-%M-%S').log"
 readonly phonelog
