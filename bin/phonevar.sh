@@ -19,3 +19,7 @@ phonelog="${todaydir}/$(date +'%H-%M-%S').log"
 readonly todaydir
 readonly beforedir
 readonly phonelog
+
+# 变量 - 配置文件
+end_num=134
+interval_time=180
