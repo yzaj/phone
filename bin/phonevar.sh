@@ -6,6 +6,9 @@ set -euo pipefail
 # 常量
 
 # 变量
+end_num=134
+interval_time=180
+
 readonly bindir="${ROOTDIR}/phone/bin"
 readonly confdir="${ROOTDIR}/phone/conf"
 readonly tempdir="${ROOTDIR}/temp/phone"
