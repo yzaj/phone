@@ -1,7 +1,47 @@
 #!/bin/bash
 #
-# 控制手机的起点
+# 程序起点
 set -euo pipefail
+
+#### 常量 ####
+readonly ROOTDIR='/yzaj'
+
+#### 包含 ####
+. "${ROOTDIR}"/phone/bin/phonevar.sh
+. "${ROOTDIR}"/shell/lib/filedir.sh
+
+#### 函数 ####
+err() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
+}
+
+#### 变量 ####
+
+#### 主体 ####
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### 常量 ####
 readonly ROOTDIR='/yzaj'
