@@ -8,6 +8,7 @@ readonly ROOTDIR='/yzaj'
 
 #### 包含 ####
 . "${ROOTDIR}"/phone/bin/phonevar.sh
+. "${ROOTDIR}"/shell/lib/filedir.sh
 
 #### 函数 ####
 err() {
