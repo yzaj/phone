@@ -7,6 +7,7 @@ set -euo pipefail
 readonly ROOTDIR='/yzaj'
 
 #### 包含 ####
+. "${ROOTDIR}"/phone/bin/phonevar.sh
 
 #### 函数 ####
 
