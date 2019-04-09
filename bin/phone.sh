@@ -10,6 +10,9 @@ readonly ROOTDIR='/yzaj'
 . "${ROOTDIR}"/phone/bin/phonevar.sh
 
 #### 函数 ####
+err() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
+}
 
 #### 变量 ####
 
