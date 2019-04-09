@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 程序起点
+# 常量与变量
 set -euo pipefail
 
 
