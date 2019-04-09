@@ -4,6 +4,7 @@
 set -euo pipefail
 
 #### 常量 ####
+readonly ROOTDIR='/yzaj'
 
 #### 包含 ####
 
