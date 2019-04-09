@@ -26,7 +26,13 @@ readonly end_num
 readonly interval_time
 
 # 创建 log
+if [[ -d "${beforedir}" ]]; then
+  rm -r "${beforedir}"
+fi
 
+mkdir -p "${todaydir}"
+
+. "${bindir}"/phonemain.sh 2>&1 | tee "${phonelog}"
 
 
 
