@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 程序起点
+# 控制手机
 set -euo pipefail
 
 
