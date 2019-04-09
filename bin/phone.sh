@@ -18,14 +18,14 @@ err() {
 #### 变量 ####
 
 #### 主体 ####
+# 读取配置文件
+filedir::config "end_num" "[1-2][0-9][0-9]" "${confdir}/phone.conf"
+filedir::config "interval_time" "[0-9]{1,}" "${confdir}/phone.conf"
 
+readonly end_num
+readonly interval_time
 
-
-
-
-
-
-
+# 创建 log
 
 
 
