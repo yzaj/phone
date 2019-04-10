@@ -38,7 +38,7 @@ fi
 for phonearg in "$@"; do
   # 获取所有的 all 参数
   if [[ "${phonearg}" == "all" ]]; then
-    phonenum="$(seq 101 "${ENDNUM}")"
+    phonenum="$(seq 101 "${end_num}")"
     get_nums
   
   # 获取所有形如 101-118 的参数
@@ -46,7 +46,7 @@ for phonearg in "$@"; do
     phonearg_head="${phonearg%-*}"
     phonearg_tail="${phonearg#*-}"
     
-    if ((101 <= phonearg_head)) && ((phonearg_head < phonearg_tail)) && ((phonearg_tail <= ENDNUM)); then
+    if ((101 <= phonearg_head)) && ((phonearg_head < phonearg_tail)) && ((phonearg_tail <= end_num)); then
       phonenum="$(seq "${phonearg_head}" "${phonearg_tail}")"
       get_nums
     else
@@ -54,7 +54,7 @@ for phonearg in "$@"; do
     fi
   
   # 获取所有形如 101 的参数
-  elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]] && ((101 <= phonearg)) && ((phonearg <= ENDNUM)); then
+  elif [[ "${phonearg}" =~ ^[1-2][0-9][0-9]$ ]] && ((101 <= phonearg)) && ((phonearg <= end_num)); then
     phonenum="${phonearg}"
     get_nums
   
