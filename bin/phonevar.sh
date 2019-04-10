@@ -6,6 +6,7 @@ set -euo pipefail
 # 常量
 readonly E_MISSING_OPERAND=1
 readonly E_UNRECOGNIZED_OPTION=2
+readonly E_NOT_FOUND=3
 
 # 变量
 end_num=134
