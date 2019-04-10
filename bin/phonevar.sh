@@ -4,6 +4,8 @@
 set -euo pipefail
 
 # 常量
+readonly E_MISSING_OPERAND=1
+readonly E_UNRECOGNIZED_OPTION=2
 
 # 变量
 end_num=134
@@ -20,3 +22,6 @@ phonelog="${todaydir}/$(date +'%H-%M-%S').log"
 readonly todaydir
 readonly beforedir
 readonly phonelog
+
+phonenums=''
+phonecmds=''
