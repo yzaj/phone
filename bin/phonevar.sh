@@ -6,7 +6,7 @@ set -euo pipefail
 # 常量 - 退出状态码
 readonly E_MISSING_OPERAND=1
 readonly E_UNRECOGNIZED_OPTION=2
-readonly E_NOT_FOUND=3
+readonly E_NOT_FOUND=127
 
 # 变量 - phone.conf
 end_num=134
