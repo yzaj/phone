@@ -3,31 +3,7 @@
 # 参数
 set -euo pipefail
 
-#### 常量 ####
-readonly E_MISSING_OPERAND=1
-readonly E_UNRECOGNIZED_OPTION=2
 
-#### 函数 ####
-# 该函数的使用范围受限
-err_mo() {
-  err "Missing operand"
-  exit "${E_MISSING_OPERAND}"
-}
-
-# 该函数的使用范围受限
-err_uo() {
-  err "Unrecognized option '${phonearg}'"
-  exit "${E_UNRECOGNIZED_OPTION}"
-}
-
-# 该函数的使用范围受限
-get_nums() {
-  phonenums="${phonenums}\n${phonenum}"
-}
-
-#### 变量 ####
-phonenums=''
-phonecmds=''
 
 #### 主体 ####
 # USAGE: phone.sh all 101-118 121-124 128 130 reboot,sleep:30,home-game
