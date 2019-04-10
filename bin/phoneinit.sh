@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 控制手机的初始化
+# 初始化
 set -euo pipefail
 
 #### 常量 ####

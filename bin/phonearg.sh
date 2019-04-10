@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# 控制手机的参数
+# 参数
 set -euo pipefail
 
 #### 常量 ####
