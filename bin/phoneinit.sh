@@ -8,13 +8,15 @@ if ! type adb; then
   exit "${E_NOT_FOUND}"
 fi
 
+if [[ -s "${phonestart}" ]]; then
+  start_time="$(cat "${phonestart}")"
+fi
 
+readonly start_time
 
+if (((current_time - start_time) > (interval_time * 60))); then
 
-
-
-
-
+fi
 
 
 
