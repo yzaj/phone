@@ -31,6 +31,8 @@ phonecmds=''
 
 # 变量 - phoneinit.sh
 readonly phonestart="${tempdir}/.phonestart"
+
 start_time=0
 current_time="$(date '+%s')"
+
 readonly current_time
