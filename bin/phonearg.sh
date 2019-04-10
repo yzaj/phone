@@ -38,7 +38,9 @@ for phonearg in "$@"; do
     phonecmds="${phonecmds//-/_}"
     
     for phonecmd in ${phonecmds}; do
-      if [[ "${phonecmd}" =~ ^sleep:[0-9]*$ || "$(type -t "${phonecmd}")" == "function" ]]; then
+      if [[ "$(type -t "${phonecmd}")" == "function" ]] && grep -P "^#[ \t]*${phonecmd}[ \t]*$" "${bindir}"/phonecmd.sh; then
+        :
+      elif [[ "${phonecmd}" =~ ^sleep:[0-9]*$ ]]; then
         :
       else
         err_uo
