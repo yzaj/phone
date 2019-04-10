@@ -3,6 +3,29 @@
 # 初始化
 set -euo pipefail
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### 常量 ####
 # 重启 adb 服务端的间隔时间: 分钟
 readonly INTERVAL_TIME=180
