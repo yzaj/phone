@@ -58,5 +58,6 @@ if [[ -z "${phonenums}" || -z "${phonecmds}" ]]; then
 fi
 
 phonenums="$(echo -e "${phonenums}" | sort -nu | xargs)"
+
 readonly phonenums
 readonly phonecmds
