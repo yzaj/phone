@@ -40,7 +40,7 @@ for phonearg in "$@"; do
     for phonecmd in ${phonecmds}; do
       if [[ "$(type -t "${phonecmd}")" == "function" ]] && grep -P "^#[ \t]*${phonecmd}[ \t]*$" "${bindir}"/phonecmd.sh; then
         :
-      elif [[ "${phonecmd}" =~ ^sleep:[0-9]*$ ]]; then
+      elif [[ "${phonecmd}" =~ ^sleep:[0-9]{1,}$ ]]; then
         :
       else
         err_uo
