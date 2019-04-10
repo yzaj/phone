@@ -3,9 +3,10 @@
 # 初始化
 set -euo pipefail
 
-
-
-
+if ! type adb; then
+  err "phone.sh: adb not found"
+  exit "${E_NOT_FOUND}"
+fi
 
 
 
