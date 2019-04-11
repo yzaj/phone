@@ -3,7 +3,7 @@
 # 参数
 set -euo pipefail
 
-# 范例: phone.sh all 101-118 121-124 128 130 reboot,sleep:30,vol-up
+# 范例: phone.sh all 101-118 121-124 128 130 reboot,sleep:30,skip-tl
 
 if (($# < 2)); then
   err_mo
