@@ -15,6 +15,7 @@ set -euo pipefail
 #
 #       reboot
 #       unlock
+#       start_tl
 #       vol_up
 #
 ###################################################################################################
@@ -41,6 +42,17 @@ unlock() {
   adb -s "${serial}" shell input keyevent 26
   adb -s "${serial}" shell input swipe 380 1200 380 800 500
   adb -s "${serial}" shell input swipe 600 350 150 350 500
+}
+
+# 功  能: 
+# 使  用: 
+# 参数 1:     [default: ]
+# 返回值: 
+# 备  注: 
+start_tl() {
+  local serial="$1"
+  
+  adb -s "${serial}" shell am start -n com.tencent.tmgp.tstl/.MainActivity
 }
 
 # 功  能: 
