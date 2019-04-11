@@ -85,21 +85,12 @@ update_tl() {
 }
 
 # 功  能: 跳过 TL
-# 使  用: skip_tl 手机序列号 手机型号
+# 使  用: skip_tl 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 点击屏幕
 skip_tl() {
   local serial="$1"
-  local model="$2"
-  local i
-  
-  if [[ "${model}" == "xiaominote" ]]; then
-    for i in $(seq 16); do
-      adb -s "${serial}" shell input keyevent 25
-    done
-  fi
   
   adb -s "${serial}" shell input tap 860 470
 }
