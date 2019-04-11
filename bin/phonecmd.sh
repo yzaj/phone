@@ -34,12 +34,12 @@ reboot() {
 # 使  用: unlock 手机序列号
 # 参数 1: 手机序列号    [default: ]
 # 返回值: 
-# 备  注: 在手机灭屏时, 使用
+# 备  注: 在手机灭屏时使用
 unlock() {
   local serial="$1"
   
   adb -s "${serial}" shell input keyevent 26
-  adb -s "${serial}" shell input swipe 380 1200 380 800 300
+  adb -s "${serial}" shell input swipe 380 1200 380 800 500
 }
 
 # 功  能: 
