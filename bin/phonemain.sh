@@ -23,7 +23,10 @@ for phonecmd in ${phonecmds}; do
   fi
   
   for phonenum in ${phonenums}; do
-    :
+    phoneserial="$(get_serial "${phonenum}")"
+    phonemodel="$(get_model "${phonenum}")"
+    
+    echo "${phoneserial}" "${phonenum}" "${phonemodel}"
   done
 done
 
