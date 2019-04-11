@@ -8,3 +8,21 @@ set -euo pipefail
 . "${bindir}"/phonecmd.sh
 . "${bindir}"/phonearg.sh
 . "${bindir}"/phoneinit.sh
+
+if [[ -s "${phonedevice}" ]]; then
+  rm "${phonedevice}"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
