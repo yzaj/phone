@@ -44,9 +44,9 @@ unlock() {
   adb -s "${serial}" shell input swipe 600 350 150 350 500
 }
 
-# 功  能: 
-# 使  用: 
-# 参数 1:     [default: ]
+# 功  能: 启动 TL
+# 使  用: start_tl 手机序列号
+# 参数 1: 手机序列号    [default: ]
 # 返回值: 
 # 备  注: 
 start_tl() {
