@@ -26,7 +26,17 @@ for phonecmd in ${phonecmds}; do
     phoneserial="$(get_serial "${phonenum}")"
     phonemodel="$(get_model "${phonenum}")"
     
-    echo "${phoneserial}" "${phonenum}" "${phonemodel}"
+    if [[ -n "${phoneserial}" ]]; then
+      phonestate="$(adb -s "${phoneserial}" get-state || true)"
+      
+      if [[ "${phonestate}" =~ ^device ]]; then
+        echo "${phonecmd}    device:    ${phonenum}" | tee -a "${phonedevice}"
+        
+        ${phonecmd} "${phoneserial}" "${phonenum}" "${phonemodel}"
+      else
+        echo "${phonecmd}     error:    ${phonenum}" | tee -a "${phonedevice}"
+      fi
+    fi
   done
 done
 
