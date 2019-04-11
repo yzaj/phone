@@ -132,11 +132,13 @@ use_fw() {
   
   if [[ "${model}" == "xiaomi6x" ]]; then
     adb -s "${serial}" shell input tap 950 1960
+    adb -s "${serial}" shell input tap 950 605
     return
   fi
   
   if [[ "${model}" == "xiaominote" ]]; then
     adb -s "${serial}" shell input tap 950 1850
+    adb -s "${serial}" shell input tap 950 605
     return
   fi
   
