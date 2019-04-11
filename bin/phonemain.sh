@@ -13,9 +13,13 @@ if [[ -s "${phonedevice}" ]]; then
   rm "${phonedevice}"
 fi
 
-
-
-
+for phonecmd in ${phonecmds}; do
+  
+  for phonenum in ${phonenums}; do
+  
+  done
+  
+done
 
 
 
