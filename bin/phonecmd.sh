@@ -130,6 +130,16 @@ use_fw() {
   local serial="$1"
   local model="$2"
   
+  if [[ "${model}" == "xiaomi6x" ]]; then
+    adb -s "${serial}" shell input tap 950 1960
+    return
+  fi
+  
+  if [[ "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 950 1850
+    return
+  fi
+  
   adb -s "${serial}" shell input tap 640 1300
   adb -s "${serial}" shell input tap 635 460
   adb -s "${serial}" shell input swipe 350 550 350 950 500
