@@ -181,9 +181,3 @@ exit_fw() {
   
   adb -s "${serial}" shell am force-stop com.cyjh.gundam
 }
-
-# 功  能: 
-# 使  用: 
-# 参数 1:     [default: ]
-# 返回值: 
-# 备  注: 
