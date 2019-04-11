@@ -20,6 +20,7 @@ set -euo pipefail
 #       skip_tl
 #       exit_tl
 #       start_fw
+#       use_fw
 #       exit_fw
 #
 ###################################################################################################
@@ -117,6 +118,22 @@ start_fw() {
   local serial="$1"
   
   adb -s "${serial}" shell am start -n com.cyjh.gundam/.fengwo.ui.activity.WelcomeActivity
+}
+
+# 功  能: 运用 FW
+# 使  用: use_fw 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 
+use_fw() {
+  local serial="$1"
+  local model="$2"
+  
+  adb -s "${serial}" shell input tap 640 1300
+  adb -s "${serial}" shell input tap 635 460
+  adb -s "${serial}" shell input swipe 350 550 350 950 500
+  adb -s "${serial}" shell input tap 625 370
 }
 
 # 功  能: 退出 FW
