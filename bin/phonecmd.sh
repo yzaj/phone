@@ -34,7 +34,7 @@ reboot() {
 # 使  用: unlock 手机序列号
 # 参数 1: 手机序列号    [default: ]
 # 返回值: 
-# 备  注: 在手机灭屏的时候使用
+# 备  注: 在手机灭屏时
 unlock() {
   local serial="$1"
   
