@@ -34,18 +34,8 @@ for phonecmd in ${phonecmds}; do
         
         ${phonecmd} "${phoneserial}" "${phonenum}" "${phonemodel}"
       else
-        echo "${phonecmd}     error:    ${phonenum}" | tee -a "${phonedevice}"
+        echo "${phonecmd}     error:           ${phonenum}" | tee -a "${phonedevice}"
       fi
     fi
   done
 done
-
-
-
-
-
-
-
-
-
-
