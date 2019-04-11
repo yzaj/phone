@@ -39,7 +39,7 @@ unlock() {
   local serial="$1"
   
   adb -s "${serial}" shell input keyevent 26
-  adb -s "${serial}" shell input swipe 380 1200 380 900
+  adb -s "${serial}" shell input swipe 380 1200 380 800
 }
 
 # 功  能: 
