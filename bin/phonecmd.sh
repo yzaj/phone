@@ -21,6 +21,7 @@ set -euo pipefail
 #       exit_tl
 #       start_fw
 #       use_fw
+#       run_fw
 #       exit_fw
 #
 ###################################################################################################
@@ -149,6 +150,25 @@ use_fw() {
   adb -s "${serial}" shell input tap 635 460
   adb -s "${serial}" shell input swipe 350 550 350 950 500
   adb -s "${serial}" shell input tap 625 370
+}
+
+# 功  能: 运行 FW
+# 使  用: run_fw 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 
+run_fw() {
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 800 1525
+  else
+    adb -s "${serial}" shell input tap 550 1060
+  fi
+  
+  adb -s "${serial}" shell input keyevent 24
 }
 
 # 功  能: 退出 FW
