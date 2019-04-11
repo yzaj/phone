@@ -16,8 +16,9 @@ fi
 for phonecmd in ${phonecmds}; do
   if [[ "${phonecmd}" =~ ^sleep:[0-9]{1,}$ ]]; then
     phonecmd="${phonecmd//:/ }"
+    echo "${phonecmd}"
     
-    "${phonecmd}"
+    ${phonecmd}
     continue
   fi
   
