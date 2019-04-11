@@ -40,6 +40,7 @@ unlock() {
   
   adb -s "${serial}" shell input keyevent 26
   adb -s "${serial}" shell input swipe 380 1200 380 800 500
+  adb -s "${serial}" shell input swipe 600 350 150 350 500
 }
 
 # 功  能: 
