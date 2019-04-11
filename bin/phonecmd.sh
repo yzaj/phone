@@ -47,12 +47,21 @@ unlock() {
 }
 
 # 功  能: 启动 TL
-# 使  用: start_tl 手机序列号
+# 使  用: start_tl 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 
 start_tl() {
   local serial="$1"
+  local model="$2"
+  local i
+  
+  if [[ "${model}" == "xiaominote" ]]; then
+    for i in $(seq 16); do
+      adb -s "${serial}" shell input keyevent 25
+    done
+  fi
   
   adb -s "${serial}" shell am start -n com.tencent.tmgp.tstl/.MainActivity
 }
