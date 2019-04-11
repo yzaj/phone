@@ -18,6 +18,7 @@ set -euo pipefail
 #       start_tl
 #       update_tl
 #       skip_tl
+#       exit_tl
 #
 ###################################################################################################
 
@@ -92,6 +93,17 @@ skip_tl() {
   local serial="$1"
   
   adb -s "${serial}" shell input tap 860 470
+}
+
+# 功  能: 退出 TL
+# 使  用: exit_tl 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+exit_tl() {
+  local serial="$1"
+  
+  adb -s "${serial}" shell am force-stop com.tencent.tmgp.tstl
 }
 
 # 功  能: 
