@@ -43,20 +43,28 @@ get_nums() {
   phonenums="${phonenums}\n${phonenum}"
 }
 
-# 功  能: 
+# 功  能: 通过手机列表的常量名, 包含的手机编号提取相对应的手机型号
 # 使  用: 
 # 参数 1:     [default: ]
 # 返回值: 
 # 备  注: 
 get_model() {
+  local num="$1"
+  local model
   
+  model="$(eval echo "\${PHONE${num}}")"
+  echo "${model%-*}"
 }
 
-# 功  能: 
+# 功  能: 通过手机列表的常量名, 包含的手机编号提取相对应的手机序列号
 # 使  用: 
 # 参数 1:     [default: ]
 # 返回值: 
 # 备  注: 
 get_serial() {
+  local num="$1"
+  local serial
   
+  serial="$(eval echo "\${PHONE${num}}")"
+  echo "${serial#*-}"
 }
