@@ -9,7 +9,8 @@ set -euo pipefail
 #       err_uo
 #       get_nums
 #
-#       
+#       get_model
+#       get_serial
 #
 ###################################################################################################
 
@@ -41,6 +42,12 @@ err_uo() {
 get_nums() {
   phonenums="${phonenums}\n${phonenum}"
 }
+
+# 功  能: 
+# 使  用: 
+# 参数 1:     [default: ]
+# 返回值: 
+# 备  注: 
 
 # 功  能: 
 # 使  用: 
