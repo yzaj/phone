@@ -16,6 +16,7 @@ set -euo pipefail
 #       reboot
 #       unlock
 #       start_tl
+#       update_tl
 #       vol_up
 #
 ###################################################################################################
@@ -53,6 +54,24 @@ start_tl() {
   local serial="$1"
   
   adb -s "${serial}" shell am start -n com.tencent.tmgp.tstl/.MainActivity
+}
+
+# 功  能: 更新 TL
+# 使  用: update_tl 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 点击确定
+update_tl() {
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 1220 710
+    return
+  fi
+  
+  adb -s "${serial}" shell input tap 860 470
 }
 
 # 功  能: 
