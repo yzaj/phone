@@ -14,11 +14,16 @@ if [[ -s "${phonedevice}" ]]; then
 fi
 
 for phonecmd in ${phonecmds}; do
+  if [[ "${phonecmd}" =~ ^sleep:[0-9]{1,}$ ]]; then
+    phonecmd="${phonecmd//:/ }"
+    
+    "${phonecmd}"
+    continue
+  fi
   
   for phonenum in ${phonenums}; do
-  
+    :
   done
-  
 done
 
 
