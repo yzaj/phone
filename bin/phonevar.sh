@@ -36,3 +36,6 @@ start_time=0
 current_time="$(date '+%s')"
 
 readonly current_time
+
+# 变量 - phonemain.sh
+phonedevice="${tempdir}/phone.device"
