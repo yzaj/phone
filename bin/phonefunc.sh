@@ -48,9 +48,15 @@ get_nums() {
 # 参数 1:     [default: ]
 # 返回值: 
 # 备  注: 
+get_model() {
+  
+}
 
 # 功  能: 
 # 使  用: 
 # 参数 1:     [default: ]
 # 返回值: 
 # 备  注: 
+get_serial() {
+  
+}
