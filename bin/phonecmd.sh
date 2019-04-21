@@ -17,7 +17,6 @@ set -euo pipefail
 #       unlock
 #       start_tl
 #       update_tl
-#       skip_tl
 #       exit_tl
 #       start_fw
 #       use_fw
@@ -25,10 +24,12 @@ set -euo pipefail
 #       exit_fw
 #       play
 #       blue
+#       white
 #       left_lower
 #       left_top
 #       right_lower
 #       right_center
+#       click
 #
 ###################################################################################################
 
@@ -90,17 +91,6 @@ update_tl() {
     adb -s "${serial}" shell input tap 1220 710
     return
   fi
-  
-  adb -s "${serial}" shell input tap 860 470
-}
-
-# 功  能: 跳过 TL
-# 使  用: skip_tl 手机序列号
-# 参数 1: 手机序列号    [default: ]
-# 返回值: 
-# 备  注: 点击屏幕
-skip_tl() {
-  local serial="$1"
   
   adb -s "${serial}" shell input tap 860 470
 }
@@ -233,6 +223,29 @@ blue() {
   adb -s "${serial}" shell input tap 950 615
 }
 
+# 功  能: 开始白吧
+# 使  用: white 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 点击 向下方向键
+white() {
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" ]]; then
+    adb -s "${serial}" shell input tap 965 1125
+    return
+  fi
+  
+  if [[ "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 965 1110
+    return
+  fi
+  
+  adb -s "${serial}" shell input tap 635 765
+}
+
 # 功  能: 点击 左下角
 # 使  用: left_lower 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
@@ -274,7 +287,7 @@ left_top() {
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
-# 备  注: 黄点
+# 备  注: 红点, 黄点
 right_lower() {
   local serial="$1"
   local model="$2"
@@ -297,7 +310,7 @@ right_lower() {
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
-# 备  注: 黄点
+# 备  注: 红点, 黄点
 right_center() {
   local serial="$1"
   local model="$2"
@@ -313,4 +326,22 @@ right_center() {
   fi
   
   adb -s "${serial}" shell input tap 1375 355
+}
+
+# 功  能: 横屏时, 点击屏幕安全区域
+# 使  用: click 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 
+click() {
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 695 55
+    return
+  fi
+  
+  adb -s "${serial}" shell input tap 530 35
 }
