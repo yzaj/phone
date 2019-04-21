@@ -23,8 +23,11 @@ set -euo pipefail
 #       use_fw
 #       run_fw
 #       exit_fw
-#       play_game
-#       stop_game
+#       play
+#       left_lower
+#       left_top
+#       right_lower
+#       right_center
 #
 ###################################################################################################
 
