@@ -23,6 +23,8 @@ set -euo pipefail
 #       use_fw
 #       run_fw
 #       exit_fw
+#       play_game
+#       stop_game
 #
 ###################################################################################################
 
@@ -189,4 +191,24 @@ exit_fw() {
   local serial="$1"
   
   adb -s "${serial}" shell am force-stop com.cyjh.gundam
+}
+
+# 功  能: 更新 TL
+# 使  用: update_tl 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 点击确定
+play_game() {
+  :
+}
+
+# 功  能: 更新 TL
+# 使  用: update_tl 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 点击确定
+stop_game() {
+  :
 }
