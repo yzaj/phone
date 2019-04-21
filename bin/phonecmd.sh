@@ -196,22 +196,22 @@ exit_fw() {
   adb -s "${serial}" shell am force-stop com.cyjh.gundam
 }
 
-# 功  能: 点击 运行
-# 使  用: update_tl 手机序列号 手机型号
+# 功  能: 开始玩吧
+# 使  用: play 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
-# 备  注: 点击确定
+# 备  注: 点击 运行
 play() {
   :
 }
 
 # 功  能: 点击 左下角
-# 使  用: stop_game 手机序列号 手机型号
+# 使  用: left_lower 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
-# 备  注: 点击左下角红点
+# 备  注: 红点, 黄点
 left_lower() {
   local serial="$1"
   local model="$2"
@@ -225,31 +225,31 @@ left_lower() {
 }
 
 # 功  能: 点击 左上角
-# 使  用: update_tl 手机序列号 手机型号
+# 使  用: left_top 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
-# 备  注: 点击确定
+# 备  注: 切换
 left_top() {
   :
 }
 
 # 功  能: 点击 右下角
-# 使  用: update_tl 手机序列号 手机型号
+# 使  用: right_lower 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
-# 备  注: 点击确定
+# 备  注: 黄点
 right_lower() {
   :
 }
 
 # 功  能: 点击 右中间
-# 使  用: update_tl 手机序列号 手机型号
+# 使  用: right_center 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
-# 备  注: 点击确定
+# 备  注: 黄点
 right_center() {
   :
 }
