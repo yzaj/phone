@@ -203,12 +203,20 @@ play_game() {
   :
 }
 
-# 功  能: 更新 TL
-# 使  用: update_tl 手机序列号 手机型号
+# 功  能: 停止游戏
+# 使  用: stop_game 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
-# 备  注: 点击确定
+# 备  注: 点击左下角红点
 stop_game() {
-  :
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 15 1010
+    return
+  fi
+  
+  adb -s "${serial}" shell input tap 8 670
 }
