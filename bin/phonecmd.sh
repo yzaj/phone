@@ -61,13 +61,13 @@ start_tl() {
   local model="$2"
   local i
   
+  adb -s "${serial}" shell am start -n com.tencent.tmgp.tstl/.MainActivity
+  
   if [[ "${model}" == "xiaominote" ]]; then
-    for i in $(seq 16); do
+    for i in $(seq 3); do
       adb -s "${serial}" shell input keyevent 25
     done
   fi
-  
-  adb -s "${serial}" shell am start -n com.tencent.tmgp.tstl/.MainActivity
 }
 
 # 功  能: 更新 TL
@@ -100,12 +100,21 @@ skip_tl() {
 }
 
 # 功  能: 退出 TL
-# 使  用: exit_tl 手机序列号
+# 使  用: exit_tl 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 
 exit_tl() {
   local serial="$1"
+  local model="$2"
+  local i
+  
+  if [[ "${model}" == "xiaominote" ]]; then
+    for i in $(seq 9); do
+      adb -s "${serial}" shell input keyevent 25
+    done
+  fi
   
   adb -s "${serial}" shell am force-stop com.tencent.tmgp.tstl
 }
