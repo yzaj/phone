@@ -239,7 +239,15 @@ left_lower() {
 # 返回值: 
 # 备  注: 切换
 left_top() {
-  :
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 80 80
+    return
+  fi
+  
+  adb -s "${serial}" shell input tap 55 55
 }
 
 # 功  能: 点击 右下角
