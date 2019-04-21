@@ -196,23 +196,23 @@ exit_fw() {
   adb -s "${serial}" shell am force-stop com.cyjh.gundam
 }
 
-# 功  能: 更新 TL
+# 功  能: 点击 运行
 # 使  用: update_tl 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 点击确定
-play_game() {
+play() {
   :
 }
 
-# 功  能: 停止游戏
+# 功  能: 点击 左下角
 # 使  用: stop_game 手机序列号 手机型号
 # 参数 1: 手机序列号    [default: ]
 # 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 点击左下角红点
-stop_game() {
+left_lower() {
   local serial="$1"
   local model="$2"
   
@@ -222,4 +222,34 @@ stop_game() {
   fi
   
   adb -s "${serial}" shell input tap 8 670
+}
+
+# 功  能: 点击 左上角
+# 使  用: update_tl 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 点击确定
+left_top() {
+  :
+}
+
+# 功  能: 点击 右下角
+# 使  用: update_tl 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 点击确定
+right_lower() {
+  :
+}
+
+# 功  能: 点击 右中间
+# 使  用: update_tl 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 点击确定
+right_center() {
+  :
 }
