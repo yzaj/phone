@@ -24,6 +24,7 @@ set -euo pipefail
 #       run_fw
 #       exit_fw
 #       play
+#       blue
 #       left_lower
 #       left_top
 #       right_lower
@@ -212,6 +213,24 @@ play() {
   fi
   
   adb -s "${serial}" shell input tap 990 600
+}
+
+# 功  能: 开始蓝吧
+# 使  用: blue 手机序列号 手机型号
+# 参数 1: 手机序列号    [default: ]
+# 参数 2: 手机型号    [default: ]
+# 返回值: 
+# 备  注: 点击 右边蓝色框
+blue() {
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 1360 915
+    return
+  fi
+  
+  adb -s "${serial}" shell input tap 950 615
 }
 
 # 功  能: 点击 左下角
