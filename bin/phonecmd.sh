@@ -203,7 +203,15 @@ exit_fw() {
 # 返回值: 
 # 备  注: 点击 运行
 play() {
-  :
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 1460 880
+    return
+  fi
+  
+  adb -s "${serial}" shell input tap 990 600
 }
 
 # 功  能: 点击 左下角
@@ -251,5 +259,18 @@ right_lower() {
 # 返回值: 
 # 备  注: 黄点
 right_center() {
-  :
+  local serial="$1"
+  local model="$2"
+  
+  if [[ "${model}" == "xiaomi6x" ]]; then
+    adb -s "${serial}" shell input tap 2075 540
+    return
+  fi
+  
+  if [[ "${model}" == "xiaominote" ]]; then
+    adb -s "${serial}" shell input tap 1900 540
+    return
+  fi
+  
+  adb -s "${serial}" shell input tap 1375 355
 }
