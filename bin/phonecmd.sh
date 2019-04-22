@@ -16,6 +16,8 @@ set -euo pipefail
 #       reboot
 #       halt
 #       unlock
+#       apk
+#       screencap
 #       bootloader
 #       recovery
 #       start_tl
@@ -69,6 +71,45 @@ unlock() {
   adb -s "${serial}" shell input keyevent 26
   adb -s "${serial}" shell input swipe 380 1200 380 800 500
   adb -s "${serial}" shell input swipe 600 350 150 350 500
+}
+
+# 功  能: 覆盖安装 *.apk
+# 使  用: apk 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 1.apk ~ 9.apk, 允许文件不存在
+apk() {
+  local serial="$1"
+  local drive='c'
+  local dir
+  local i
+  
+  if [[ -f "/cygdrive/d/yzaj/cygwin64/Cygwin-Terminal.ico" ]]; then
+    drive='d'
+  fi
+  
+  dir="/cygdrive/${drive}/.yzaj/apk"
+  
+  mkdir -p "${dir}"
+  
+  for i in $(seq 9); do
+    if [[ -f "${dir}/${i}.apk" ]]; then
+      echo "install ${i}.apk ..."
+      adb -s "${serial}" install -r "${dir}/${i}.apk"
+      sleep 1
+    fi
+  done
+}
+
+# 功  能: 
+# 使  用: reboot 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+reboot() {
+  local serial="$1"
+  
+  adb -s "${serial}" reboot
 }
 
 # 功  能: 重启并进入 fastboot 模式, 线刷
