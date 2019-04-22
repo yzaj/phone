@@ -101,15 +101,28 @@ apk() {
   done
 }
 
-# 功  能: 
-# 使  用: reboot 手机序列号
+# 功  能: 截屏并保存到计算机
+# 使  用: screencap 手机序列号 手机型号 手机编号
 # 参数 1: 手机序列号    [default: ]
+# 参数 2: 
+# 参数 3: 手机编号    [default: ]
 # 返回值: 
 # 备  注: 
-reboot() {
+screencap() {
   local serial="$1"
+  local num="$3"
+  local drive='c'
+  local dir
   
-  adb -s "${serial}" reboot
+  if [[ -f "/cygdrive/d/yzaj/cygwin64/Cygwin-Terminal.ico" ]]; then
+    drive='d'
+  fi
+  
+  dir="/cygdrive/${drive}/.yzaj/screencap"
+  
+  mkdir -p "${dir}"
+  
+  adb -s "${serial}" exec-out screencap -p > "${dir}/${num}.png"
 }
 
 # 功  能: 重启并进入 fastboot 模式, 线刷
