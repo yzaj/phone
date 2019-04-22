@@ -16,6 +16,8 @@ set -euo pipefail
 #       reboot
 #       halt
 #       unlock
+#       bootloader
+#       recovery
 #       start_tl
 #       update_tl
 #       exit_tl
@@ -67,6 +69,28 @@ unlock() {
   adb -s "${serial}" shell input keyevent 26
   adb -s "${serial}" shell input swipe 380 1200 380 800 500
   adb -s "${serial}" shell input swipe 600 350 150 350 500
+}
+
+# 功  能: 重启并进入 fastboot 模式, 线刷
+# 使  用: bootloader 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+bootloader() {
+  local serial="$1"
+  
+  adb -s "${serial}" reboot bootloader
+}
+
+# 功  能: 重启并进入 recovery 模式
+# 使  用: recovery 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+recovery() {
+  local serial="$1"
+  
+  adb -s "${serial}" reboot recovery
 }
 
 # 功  能: 启动 TL
