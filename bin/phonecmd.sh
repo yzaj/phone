@@ -14,6 +14,7 @@ set -euo pipefail
 ###################################################################################################
 #
 #       reboot
+#       halt
 #       unlock
 #       start_tl
 #       update_tl
@@ -42,6 +43,17 @@ reboot() {
   local serial="$1"
   
   adb -s "${serial}" reboot
+}
+
+# 功  能: 关机
+# 使  用: halt 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+halt() {
+  local serial="$1"
+  
+  adb -s "${serial}" shell reboot -p
 }
 
 # 功  能: 滑动解锁
