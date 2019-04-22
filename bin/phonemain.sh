@@ -32,7 +32,7 @@ for phonecmd in ${phonecmds}; do
       if [[ "${phonestate}" =~ ^device ]]; then
         echo "${phonecmd}    device:    ${phonenum}" | tee -a "${phonedevice}"
         
-        ${phonecmd} "${phoneserial}" "${phonemodel}"
+        ${phonecmd} "${phoneserial}" "${phonemodel}" "${phonenum}"
       else
         echo "${phonecmd}     error:           ${phonenum}" | tee -a "${phonedevice}"
       fi
