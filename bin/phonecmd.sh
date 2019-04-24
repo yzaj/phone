@@ -288,11 +288,11 @@ play() {
   local model="$2"
   
   if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 1460 880
+    adb -s "${serial}" shell input tap 1460 855
     return
   fi
   
-  adb -s "${serial}" shell input tap 990 600
+  adb -s "${serial}" shell input tap 990 570
 }
 
 # 功  能: 开始蓝吧
