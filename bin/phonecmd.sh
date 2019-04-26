@@ -92,10 +92,12 @@ apk() {
   
   mkdir -p "${dir}"
   
+  cd "${dir}"
+  
   for i in $(seq 9); do
     if [[ -f "${dir}/${i}.apk" ]]; then
       echo "install ${i}.apk ..."
-      adb -s "${serial}" install -r "${dir}/${i}.apk"
+      adb -s "${serial}" install -r "${i}.apk"
       sleep 1
     fi
   done
