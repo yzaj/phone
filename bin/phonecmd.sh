@@ -367,9 +367,6 @@ left_top() {
   local model="$2"
   
   if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 960 710
-    adb -s "${serial}" shell input tap 1780 135
-    
     for i in $(seq 3); do
       adb -s "${serial}" shell input tap 1030 855
     done
@@ -377,9 +374,6 @@ left_top() {
     adb -s "${serial}" shell input tap 80 80
     return
   fi
-  
-  adb -s "${serial}" shell input tap 720 475
-  adb -s "${serial}" shell input tap 1265 90
   
   for i in $(seq 3); do
     adb -s "${serial}" shell input tap 720 570
