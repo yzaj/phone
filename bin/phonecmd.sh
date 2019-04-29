@@ -449,5 +449,7 @@ click() {
     return
   fi
   
-  adb -s "${serial}" shell input tap 530 35
+  #adb -s "${serial}" shell input tap 530 35
+  adb -s "${serial}" shell input tap 100 670
+  adb -s "${serial}" shell input tap 100 670
 }
