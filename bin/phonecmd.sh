@@ -199,7 +199,7 @@ exit_tl() {
   local i
   
   if [[ "${model}" == "xiaominote" ]]; then
-    for i in $(seq 9); do
+    for i in $(seq 3); do
       adb -s "${serial}" shell input keyevent 25
     done
   fi
@@ -443,7 +443,5 @@ click() {
     return
   fi
   
-  #adb -s "${serial}" shell input tap 530 35
-  adb -s "${serial}" shell input tap 100 670
-  adb -s "${serial}" shell input tap 100 670
+  adb -s "${serial}" shell input tap 530 35
 }
