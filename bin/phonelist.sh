@@ -34,11 +34,12 @@ readonly PHONE127='redmi6a-870cd2c17d22'
 readonly PHONE128='redmi6a-cdc79b8b7d2a'
 readonly PHONE129='redmi6a-e2a0e4e27d27'
 readonly PHONE130='redmi6a-50c0aaa67d21'
-readonly PHONE131='xiaomi6x-ab86043'
+readonly PHONE131='redmi6a-42c3cea87d2b'
 readonly PHONE132='redmi6a-2e4507767d2b'
 readonly PHONE133='xiaominote-901434a0'
 readonly PHONE134='xiaominote-be4b3398'
 
+#readonly PHONE131='xiaomi6x-ab86043'
 readonly PHONE135=''
 readonly PHONE136=''
 
