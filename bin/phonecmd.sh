@@ -228,25 +228,16 @@ use_fw() {
   local serial="$1"
   local model="$2"
   
-  if [[ "${model}" == "xiaomi6x" ]]; then
-    adb -s "${serial}" shell input tap 950 1960
-  fi
-  
   if [[ "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 950 1850
-  fi
-  
-  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 950 605
-    adb -s "${serial}" shell input swipe 550 650 550 1050 500
-    adb -s "${serial}" shell input tap 940 490
+    adb -s "${serial}" shell input tap 380 1470
+    adb -s "${serial}" shell input tap 380 1640
+    adb -s "${serial}" shell input tap 940 1160
     return
   fi
   
-  adb -s "${serial}" shell input tap 640 1300
-  adb -s "${serial}" shell input tap 635 460
-  adb -s "${serial}" shell input swipe 350 550 350 950 500
-  adb -s "${serial}" shell input tap 625 370
+  adb -s "${serial}" shell input tap 260 1060
+  adb -s "${serial}" shell input tap 260 1160
+  adb -s "${serial}" shell input tap 630 850
 }
 
 # 功  能: 运行 FW
