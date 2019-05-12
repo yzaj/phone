@@ -236,7 +236,9 @@ use_fw() {
   fi
   
   adb -s "${serial}" shell input tap 260 1060
+  sleep 1
   adb -s "${serial}" shell input tap 260 1160
+  sleep 1
   adb -s "${serial}" shell input tap 630 850
 }
 
