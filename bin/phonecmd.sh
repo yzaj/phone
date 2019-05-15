@@ -24,6 +24,7 @@ set -euo pipefail
 #       update_tl
 #       exit_tl
 #       enter_tl
+#       enter_tl2
 #       start_fw
 #       use_fw
 #       run_fw
@@ -189,13 +190,22 @@ exit_tl() {
 # 功  能: 直接进入 TL
 # 使  用: enter_tl 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 返回值: 
+# 返回值: 必须和 enter_tl2 同时使用
 # 备  注: 
 enter_tl() {
   local serial="$1"
   
   adb -s "${serial}" shell input tap 720 610
-  sleep 2
+}
+
+# 功  能: 直接进入 TL
+# 使  用: enter_tl2 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 必须和 enter_tl 同时使用
+# 备  注: 
+enter_tl2() {
+  local serial="$1"
+  
   adb -s "${serial}" shell input tap 1290 660
 }
 
@@ -374,6 +384,8 @@ backpack() {
   local serial="$1"
   
   adb -s "${serial}" shell input tap 1300 400
+  sleep 1
   adb -s "${serial}" shell input tap 1165 645
+  sleep 1
   adb -s "${serial}" shell input tap 1060 100
 }
