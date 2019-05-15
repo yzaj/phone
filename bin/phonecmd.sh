@@ -37,6 +37,8 @@ set -euo pipefail
 #       right_center
 #       click
 #       annc
+#       ad
+#       backpack
 #
 ###################################################################################################
 
@@ -346,4 +348,31 @@ annc() {
   for i in $(seq 2); do
     adb -s "${serial}" shell input tap 720 570
   done
+}
+
+# 功  能: 关闭广告
+# 使  用: ad 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+ad() {
+  local serial="$1"
+  local i
+  
+  for i in $(seq 3); do
+    adb -s "${serial}" shell input tap 1270 75
+  done
+}
+
+# 功  能: 打开背包
+# 使  用: backpack 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+backpack() {
+  local serial="$1"
+  
+  adb -s "${serial}" shell input tap 1300 400
+  adb -s "${serial}" shell input tap 1165 645
+  adb -s "${serial}" shell input tap 1060 100
 }
