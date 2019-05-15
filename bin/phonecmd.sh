@@ -35,6 +35,8 @@ set -euo pipefail
 #       right_lower
 #       right_center
 #       click
+#       annc
+#       
 #
 ###################################################################################################
 
@@ -285,10 +287,6 @@ left_lower() {
 left_top() {
   local serial="$1"
   
-  for i in $(seq 3); do
-    adb -s "${serial}" shell input tap 720 570
-  done
-  
   adb -s "${serial}" shell input tap 55 55
 }
 
@@ -323,4 +321,18 @@ click() {
   local serial="$1"
   
   adb -s "${serial}" shell input tap 530 35
+}
+
+# 功  能: 关闭公告
+# 使  用: annc 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+annc() {
+  local serial="$1"
+  local i
+  
+  for i in $(seq 2); do
+    adb -s "${serial}" shell input tap 720 570
+  done
 }
