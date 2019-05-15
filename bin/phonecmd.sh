@@ -279,6 +279,7 @@ white() {
   local serial="$1"
   
   adb -s "${serial}" shell input tap 635 765
+  adb -s "${serial}" shell input swipe 360 615 360 405 500
 }
 
 # 功  能: 点击 左下角
