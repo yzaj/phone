@@ -150,59 +150,36 @@ recovery() {
 }
 
 # 功  能: 启动 TL
-# 使  用: start_tl 手机序列号 手机型号
+# 使  用: start_tl 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 
 start_tl() {
   local serial="$1"
-  local model="$2"
   local i
   
   adb -s "${serial}" shell am start -n com.tencent.tmgp.tstl/.MainActivity
-  
-  if [[ "${model}" == "xiaominote" ]]; then
-    for i in $(seq 3); do
-      adb -s "${serial}" shell input keyevent 25
-    done
-  fi
 }
 
 # 功  能: 更新 TL
-# 使  用: update_tl 手机序列号 手机型号
+# 使  用: update_tl 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 点击确定
 update_tl() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 1220 710
-    return
-  fi
   
   adb -s "${serial}" shell input tap 860 470
 }
 
 # 功  能: 退出 TL
-# 使  用: exit_tl 手机序列号 手机型号
+# 使  用: exit_tl 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 
 exit_tl() {
   local serial="$1"
-  local model="$2"
   local i
-  
-  if [[ "${model}" == "xiaominote" ]]; then
-    for i in $(seq 3); do
-      adb -s "${serial}" shell input keyevent 25
-    done
-  fi
   
   adb -s "${serial}" shell am force-stop com.tencent.tmgp.tstl
 }
@@ -219,21 +196,12 @@ start_fw() {
 }
 
 # 功  能: 运用 FW
-# 使  用: use_fw 手机序列号 手机型号
+# 使  用: use_fw 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 
 use_fw() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 380 1470
-    adb -s "${serial}" shell input tap 380 1640
-    adb -s "${serial}" shell input tap 940 1160
-    return
-  fi
   
   adb -s "${serial}" shell input tap 260 1060
   sleep 1
@@ -243,21 +211,14 @@ use_fw() {
 }
 
 # 功  能: 运行 FW
-# 使  用: run_fw 手机序列号 手机型号
+# 使  用: run_fw 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 
 run_fw() {
   local serial="$1"
-  local model="$2"
   
-  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 800 1525
-  else
-    adb -s "${serial}" shell input tap 550 1060
-  fi
-  
+  adb -s "${serial}" shell input tap 550 1060
   adb -s "${serial}" shell input keyevent 24
 }
 
@@ -273,100 +234,56 @@ exit_fw() {
 }
 
 # 功  能: 开始玩吧
-# 使  用: play 手机序列号 手机型号
+# 使  用: play 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 点击 运行
 play() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 1460 855
-    return
-  fi
   
   adb -s "${serial}" shell input tap 990 570
 }
 
 # 功  能: 开始蓝吧
-# 使  用: blue 手机序列号 手机型号
+# 使  用: blue 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 点击 右边蓝色框
 blue() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 1360 915
-    return
-  fi
   
   adb -s "${serial}" shell input tap 950 615
 }
 
 # 功  能: 开始白吧
-# 使  用: white 手机序列号 手机型号
+# 使  用: white 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 点击 向下方向键
 white() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" ]]; then
-    adb -s "${serial}" shell input tap 965 1125
-    return
-  fi
-  
-  if [[ "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 965 1110
-    return
-  fi
   
   adb -s "${serial}" shell input tap 635 765
 }
 
 # 功  能: 点击 左下角
-# 使  用: left_lower 手机序列号 手机型号
+# 使  用: left_lower 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 红点, 黄点
 left_lower() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 15 1010
-    return
-  fi
   
   adb -s "${serial}" shell input tap 8 670
 }
 
 # 功  能: 点击 左上角
-# 使  用: left_top 手机序列号 手机型号
+# 使  用: left_top 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 切换
 left_top() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    for i in $(seq 3); do
-      adb -s "${serial}" shell input tap 1030 855
-    done
-    
-    adb -s "${serial}" shell input tap 80 80
-    return
-  fi
   
   for i in $(seq 3); do
     adb -s "${serial}" shell input tap 720 570
@@ -376,65 +293,34 @@ left_top() {
 }
 
 # 功  能: 点击 右下角
-# 使  用: right_lower 手机序列号 手机型号
+# 使  用: right_lower 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 红点, 黄点
 right_lower() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" ]]; then
-    adb -s "${serial}" shell input tap 2075 1010
-    return
-  fi
-  
-  if [[ "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 1900 1010
-    return
-  fi
   
   adb -s "${serial}" shell input tap 1375 670
 }
 
 # 功  能: 点击 右中间
-# 使  用: right_center 手机序列号 手机型号
+# 使  用: right_center 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 红点, 黄点
 right_center() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" ]]; then
-    adb -s "${serial}" shell input tap 2075 540
-    return
-  fi
-  
-  if [[ "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 1900 540
-    return
-  fi
   
   adb -s "${serial}" shell input tap 1375 355
 }
 
 # 功  能: 横屏时, 点击屏幕安全区域
-# 使  用: click 手机序列号 手机型号
+# 使  用: click 手机序列号
 # 参数 1: 手机序列号    [default: ]
-# 参数 2: 手机型号    [default: ]
 # 返回值: 
 # 备  注: 
 click() {
   local serial="$1"
-  local model="$2"
-  
-  if [[ "${model}" == "xiaomi6x" || "${model}" == "xiaominote" ]]; then
-    adb -s "${serial}" shell input tap 695 55
-    return
-  fi
   
   adb -s "${serial}" shell input tap 530 35
 }
