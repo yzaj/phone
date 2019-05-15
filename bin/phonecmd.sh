@@ -23,6 +23,7 @@ set -euo pipefail
 #       start_tl
 #       update_tl
 #       exit_tl
+#       enter_tl
 #       start_fw
 #       use_fw
 #       run_fw
@@ -36,7 +37,6 @@ set -euo pipefail
 #       right_center
 #       click
 #       annc
-#       
 #
 ###################################################################################################
 
@@ -158,7 +158,6 @@ recovery() {
 # 备  注: 
 start_tl() {
   local serial="$1"
-  local i
   
   adb -s "${serial}" shell am start -n com.tencent.tmgp.tstl/.MainActivity
 }
@@ -181,9 +180,21 @@ update_tl() {
 # 备  注: 
 exit_tl() {
   local serial="$1"
-  local i
   
   adb -s "${serial}" shell am force-stop com.tencent.tmgp.tstl
+}
+
+# 功  能: 直接进入 TL
+# 使  用: enter_tl 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+enter_tl() {
+  local serial="$1"
+  
+  adb -s "${serial}" shell input tap 720 610
+  sleep 2
+  adb -s "${serial}" shell input tap 1290 660
 }
 
 # 功  能: 启动 FW
