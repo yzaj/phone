@@ -40,6 +40,7 @@ set -euo pipefail
 #       annc
 #       ad
 #       backpack
+#       g4
 #
 ###################################################################################################
 
@@ -206,6 +207,7 @@ enter_tl() {
 enter_tl2() {
   local serial="$1"
   
+  adb -s "${serial}" shell input tap 850 470
   adb -s "${serial}" shell input tap 1290 660
 }
 
@@ -388,4 +390,17 @@ backpack() {
   adb -s "${serial}" shell input tap 1165 645
   sleep 1
   adb -s "${serial}" shell input tap 1060 100
+}
+
+# 功  能: 关闭 4G 流量提示
+# 使  用: g4 手机序列号
+# 参数 1: 手机序列号    [default: ]
+# 返回值: 
+# 备  注: 
+g4() {
+  local serial="$1"
+  
+  adb -s "${serial}" shell input tap 590 470
+  sleep 2
+  adb -s "${serial}" shell input tap 1265 90
 }
